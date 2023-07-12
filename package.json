@@ -4,9 +4,9 @@
   "description": "Tebrikler, Backend konularını tamamladın.",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server":"nodemon index.js"
+    "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/kubrasertkaya/fsweb-backend-challenge#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "knex": "^2.5.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
