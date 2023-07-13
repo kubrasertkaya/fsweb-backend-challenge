@@ -14,6 +14,12 @@ server.use(morgan("dev"));
 server.use(express.json()); //build-in middleware
 
 // 3.routerlarım
+const authRouter = require("./auth/auth-router");
+const userRouter = require("./users/users-router");
+const postRouter = require("./posts/posts-router");
+const commentRouter = require("./comments/comments-router");
+const LikeRouter = require("../api/likes/likes-router");
+
 server.get("/", (req, res) => {
   res.json({ message: "Server up and running...." }); //test amaçlı bir endpoint yazdık.
 });
@@ -24,6 +30,11 @@ server.use((err, req, res, next) => {
     .status(err.status || 500)
     .json({ message: err.message || "Server error!.... " });
 });
+server.use("/api/auth", authRouter);
+server.use("/api/users", userRouter);
+server.use("/api/posts", postRouter);
+server.use("/api/comments", commentRouter);
+server.use("/api/likes", LikeRouter);
 
 // 5.export
 
