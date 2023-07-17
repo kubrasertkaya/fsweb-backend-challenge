@@ -1,7 +1,7 @@
 const Posts = require("./posts-model");
 const { JWT_SECRET } = require("../secrets");
 const jwt = require("jsonwebtoken");
-const db = require("../../data/seeds/db-config");
+const db = require("../../data/db-config");
 
 const payloadCheck = function (req, res, next) {
   try {

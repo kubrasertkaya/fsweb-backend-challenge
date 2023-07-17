@@ -1,4 +1,4 @@
-const db = require("../../data/seeds/db-config");
+const db = require("../../data/db-config");
 const Posts = require("../posts/posts-model");
 
 const getCommented = async function (filter) {

@@ -25,17 +25,18 @@ server.get("/", (req, res) => {
 });
 
 // 4.ERROR middleware
-server.use((err, req, res, next) => {
-  res
-    .status(err.status || 500)
-    .json({ message: err.message || "Server error!.... " });
-});
+
 server.use("/api/auth", authRouter);
 server.use("/api/users", userRouter);
 server.use("/api/posts", postRouter);
 server.use("/api/comments", commentRouter);
 server.use("/api/likes", LikeRouter);
 
+server.use((err, req, res, next) => {
+  res
+    .status(err.status || 500)
+    .json({ message: err.message || "Server error!.... " });
+});
 // 5.export
 
 module.exports = server;

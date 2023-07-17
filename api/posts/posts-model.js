@@ -1,4 +1,4 @@
-const db = require("../../data/seeds/db-config");
+const db = require("../../data/db-config");
 
 const getPosts = async function () {
   const allPosts = await db("posts as p")

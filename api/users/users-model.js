@@ -1,4 +1,4 @@
-const db = require("../../data/seeds/db-config");
+const db = require("../../data/db-config");
 
 async function findUsers() {
   const allUsers = await db("users as u").select(
