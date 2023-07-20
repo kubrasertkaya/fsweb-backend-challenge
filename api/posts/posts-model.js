@@ -14,17 +14,21 @@ const getPosts = async function () {
 };
 async function getPostById(post_id) {
   const post = await db("posts as p")
-    .rightJoin("users as u", "u.user_id", "p.user_id")
+    .join("users as u", "u.user_id", "p.user_id")
+    .join("comments as c", "c.post_id", "p.post_id")
+    .join("likes as l", "l.post_id", "p.post_id")
     .select(
       "u.user_id",
       "u.username",
       "p.post_id",
       "p.content",
-      "p.like_count",
-      "p.created_at"
+      "p.created_at",
+      "c.user_id",
+      "c.post_id"
     )
     .where("p.post_id", post_id)
     .first();
+
   const comments = await db("comments as c")
     .rightJoin("users as u", "u.user_id", "c.user_id")
     .select("c.*", "u.username")
