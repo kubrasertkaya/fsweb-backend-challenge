@@ -7,7 +7,7 @@ const restricted = (req, res, next) => {
   try {
     const tokenHeader = req.headers["authorization"];
     if (!tokenHeader) {
-      res.status(401).json({ message: "Token gereklidir" });
+      res.status(400).json({ message: "Token gereklidir" });
     } else {
       jwt.verify(tokenHeader, JWT_SECRET, (err, decodeToken) => {
         if (err) {
