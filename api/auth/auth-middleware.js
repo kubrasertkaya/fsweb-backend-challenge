@@ -41,9 +41,9 @@ const userNameCheck = async function (req, res, next) {
     const isUserName = await userModel.findUserBy({ username: username });
     const isUserEmail = await userModel.findUserBy({ email: email });
     if (isUserName) {
-      res.status(401).json({ message: "username was taken" });
+      res.status(401).json({ message: "username alınmıştır" });
     } else if (isUserEmail) {
-      res.status(401).json({ message: "email was taken" });
+      res.status(401).json({ message: "email alınmıştır" });
     } else {
       next();
     }
